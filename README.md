@@ -14,7 +14,7 @@ by [TimeDropperJS](https://felixg.io/products/timedropper-jquery)
 - Adapted with system theme and/or customizable with `TimeDropperThemeData`
 - 3 different designs to choose from
 
-| DEMO 1 | DEMO 2 | DEMO 3 |
+| TimeDropperStyle.outerFilled | TimeDropperStyle.innerFilled | TimeDropperStyle.bordered |
 |--------|--------|--------|
 |![DEMO1](https://raw.githubusercontent.com/rajyadavnp/time_dropper/main/demo/style1.gif)|![DEMO2](https://raw.githubusercontent.com/rajyadavnp/time_dropper/main/demo/style2.gif)|![DEMO3](https://raw.githubusercontent.com/rajyadavnp/time_dropper/main/demo/style3.gif)|
 
@@ -73,11 +73,9 @@ _showTimeDropper(GlobalKey key) {
 
 ### TimeDropperStyle (enum)
 
-| Style | Ref |
+| Styles | Ref |
 | ----- | --- |
-| `TimeDropperStyle.outerFilled` | [DEMO 1](#features) |
-| `TimeDropperStyle.innerFilled` | [DEMO 2](#features) |
-| `TimeDropperStyle.bordered` | [DEMO 3](#features) |
+| `TimeDropperStyle.outerFilled` / `TimeDropperStyle.innerFilled` / `TimeDropperStyle.bordered` | [View](#features) |
 
 ### TimeDropperThemeData
 
