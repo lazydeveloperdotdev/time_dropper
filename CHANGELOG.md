@@ -1,3 +1,3 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+- Initial version. Refer, [README](https://github.com/rajyadavnp/time_dropper/blob/main/README.md) 

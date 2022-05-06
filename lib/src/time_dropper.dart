@@ -1,5 +1,6 @@
 part of '../time_dropper.dart';
 
+/// Widget that is displayed when [showTimeDropper] function is called
 class TimeDropper extends StatefulWidget {
   final GlobalKey? containerKey;
   final void Function(TimeOfDay time) close;
@@ -30,11 +31,10 @@ class _TimeDropperState extends State<TimeDropper> with SingleTickerProviderStat
   late double radius = 125;
   bool _panStarted = false;
 
+  /// Moves the hands as set by [initialTime] and/or set to current if null
   _initValue() {
     var now = DateTime.now();
-
     var time = widget.initialTime ?? TimeOfDay(hour: now.hour, minute: now.minute);
-
     var hours = <double>[];
     var mins = <double>[];
     for (int i = 0; i < 12; i++) {
@@ -65,6 +65,7 @@ class _TimeDropperState extends State<TimeDropper> with SingleTickerProviderStat
     super.initState();
   }
 
+  /// Convert [DragUpdateDetails] into circular path and return degree of an angle
   double _getDragDegree(DragUpdateDetails details) {
     double angle = 0.0;
     Offset coordinates = details.localPosition;
@@ -92,6 +93,7 @@ class _TimeDropperState extends State<TimeDropper> with SingleTickerProviderStat
     return angle;
   }
 
+  /// Handles hour hand movement
   void onHourPanUpdate(DragUpdateDetails details) {
     var angle = _getDragDegree(details);
 
@@ -102,10 +104,12 @@ class _TimeDropperState extends State<TimeDropper> with SingleTickerProviderStat
     _sendTime();
   }
 
+  /// Converts continuous angles to discreet angles as per the steps provided
   double clampToNearest(double angle, int step) {
     return ((angle ~/ step) * step).toDouble();
   }
 
+  /// Handles minute hand movement
   void onMinutePanUpdate(DragUpdateDetails details) {
     var angle = _getDragDegree(details);
     setState(() {
@@ -115,6 +119,7 @@ class _TimeDropperState extends State<TimeDropper> with SingleTickerProviderStat
     _sendTime();
   }
 
+  /// Sends selected time to [onTimeChanged]
   _sendTime() {
     if (widget.onTimeChanged == null) return;
     var hour = _normalize(hourAngle, true);
@@ -122,6 +127,7 @@ class _TimeDropperState extends State<TimeDropper> with SingleTickerProviderStat
     widget.onTimeChanged!(TimeOfDay(hour: hour, minute: _normalize(minuteAngle)));
   }
 
+  /// Sends selected time to [onDone]
   _onClose() {
     var hour = _normalize(hourAngle, true);
     if (_isPm) hour += 12;
@@ -198,6 +204,7 @@ class _TimeDropperState extends State<TimeDropper> with SingleTickerProviderStat
       primaryColor: primaryColor,
       selectedColor: selectedColor,
       unSelectedColor: unSelectedColor,
+      elevation: _themeData?.elevation ?? 10.0,
       selectedHandColor: _themeData?.selectedHandColor ?? selectedColor.withOpacity(0.5),
       unSelectedHandColor: _themeData?.unSelectedHandColor ?? unSelectedColor.withOpacity(0.5),
       innerColor: _themeData?.innerColor ?? primaryColor,
@@ -243,7 +250,7 @@ class _TimeDropperState extends State<TimeDropper> with SingleTickerProviderStat
       color: Colors.transparent,
       clipper: clipper,
       shadowColor: _theme.shadowColor!,
-      elevation: 10,
+      elevation: _theme.elevation!,
       child: ClipPath(
         clipper: clipper,
         child: Container(

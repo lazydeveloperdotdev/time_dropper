@@ -1,11 +1,14 @@
 part of '../time_dropper.dart';
 
+/// Extension on `num` applies on `double` and `int`
 extension Ext on num {
+  /// Extension to convert degrees to radians
   double toRad() {
     return pi / 180 * this;
   }
 }
 
+/// CustomPainter to draw the dial and various components on the dial
 class HandlePainter extends CustomPainter {
   final Color color;
   final Color sliderColor;
@@ -155,6 +158,7 @@ class NoClipper extends CustomClipper<Path> {
   }
 }
 
+/// Clipper to draw pointer on the top of the dial
 class TopClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
@@ -170,6 +174,7 @@ class TopClipper extends CustomClipper<Path> {
   }
 }
 
+/// Clipper to draw pointer on the bottom of the dial
 class BottomClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {

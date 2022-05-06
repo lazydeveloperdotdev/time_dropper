@@ -1,7 +1,7 @@
 name: time_dropper
-description: A new Flutter project.
+description: Gorgeous, fully animated, round dial time picker inspired by TimeDropperJS
 version: 0.0.1
-homepage:
+homepage: https://github.com/rajyadavnp/time_dropper
 
 environment:
   sdk: ">=2.16.1 <3.0.0"
