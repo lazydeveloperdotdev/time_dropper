@@ -264,9 +264,9 @@ packages:
   time_dropper:
     dependency: "direct main"
     description:
-      path: "/Users/raj/StudioProjects/time_dropper"
-      relative: false
-    source: path
+      name: time_dropper
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.0.1"
   typed_data:
     dependency: transitive
